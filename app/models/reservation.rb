@@ -8,6 +8,8 @@ class Reservation < ApplicationRecord
   validates :end_date, presence: true, date: { after: Proc.new { :start_date } }
   validates :total_cost, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
+  private
+  
   def end_date_validation
     throw :abort unless self.end_date <= self.start_date + 1.month
   end
