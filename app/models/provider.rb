@@ -1,6 +1,7 @@
 class Provider < ApplicationRecord
   has_many :reservations
   has_many :skills
+  has_one_attached :avatar
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :bio, presence: true
