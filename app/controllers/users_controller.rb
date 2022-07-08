@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
   def authenticate
-    token = app_token
-    name = JwtHelper::JsonWebToken.decode(token)
-    unless App.where(name:, token:)
-      render json: { 'error:': 'Unauthorized app' }, status: :forbidden
+    valid, error, status = UsersHelper::Validator.valid_app_token?(request.headers['Authorization'])
+    unless valid
+      # Invalid API token
+      render json: { 'error:': error }, status: status
       return
     end
     user = User.find_by_email(params[:email])
     unless user
-      render json: { 'error:': 'User does no exist' }, status: :unauthorized
+      render json: { 'error:': 'User does not exist' }, status: :unauthorized
       return
     end
     if UsersHelper::Hash.valid?(params[:password], user.password)
-      render json: user, status: :ok
+      render json: user.to_json(only: %I[name email token admin]), status: :ok
     else
       render json: { 'error:': 'Invalid Password' }, status: :unauthorized
     end
@@ -21,43 +21,25 @@ class UsersController < ApplicationController
   end
 
   def add
-    token = app_token
-    name = JwtHelper::JsonWebToken.decode(token)
-    unless App.where(name:, token:)
-      render json: { 'error:': 'Unauthorized app' }, status: :forbidden
+    valid, error, status = UsersHelper::Validator.valid_app_token?(request.headers['Authorization'])
+    unless valid
+      render json: { 'error:': error }, status: status
       return
     end
-    return unless valid_user?
-
-    user = User.new(email: params[:email],
-                    admin: params[:admin] || false,
-                    name: params[:name] || '',
+    valid, error, status = UsersHelper::Validator.valid_credentials?(params[:email], params[:password])
+    unless valid
+      render json: { 'error:': error }, status: status
+      return
+    end
+    user = User.new(email: params[:email], admin: params[:admin] || false, name: params[:name] || '',
                     password: UsersHelper::Hash.encrypt(params[:password]))
     if user.valid?
       user.save
-      render json: user, status: :ok
+      render json: user.to_json(only: %I[name email token admin]), status: :ok
     else
       render json: { 'error:': user.errors.first.message }, status: :bad_request
     end
-  end
-
-  private
-
-  def valid_user?
-    user = User.find_by_email(params[:email])
-    if user
-      render json: { 'error:': 'email already taken' }, status: :unauthorized
-      return false
-    end
-    if params[:password].size < 6
-      render json: { 'error:': 'password too short' }, status: :bad_request
-      return false
-    end
-    true
-  end
-
-  def app_token
-    header = request.headers['Authorization']
-    header.split.last
+  rescue StandardError => e
+    render json: { 'error:': e }, status: :bad_request
   end
 end
