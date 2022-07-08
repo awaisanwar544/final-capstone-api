@@ -4,7 +4,6 @@ class CreateProviders < ActiveRecord::Migration[7.0]
       t.string :name
       t.text :bio
       t.decimal :cost
-      t.string :image
 
       t.timestamps
     end
