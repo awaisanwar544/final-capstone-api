@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get 'api/reservations', to: 'reservations#index', as: 'reservations_index'
   post 'api/reservations', to: 'reservations#add', as: 'reservations_add'
   delete 'api/reservations', to: 'reservations#destroy', as: 'reservations_destroy'
-  # Provider routes
-  get 'api/providers', to: 'providers#index', as: 'providers_index'
-  post 'api/provider', to: 'providers#add', as: 'providers_add'
-  delete 'api/provider', to: 'providers#destroy', as: 'providers_destroy'
-  match '*unmatched', to: 'application#route_not_found', via: :all
+  # # Provider routes
+  namespace :api, defaults: { format: :json } do
+    resources :providers, only: [:index, :show, :create, :destroy]
+  end
+  # match '*unmatched', to: 'application#route_not_found', via: :all
 end
