@@ -1,12 +1,14 @@
 class Api::ProvidersController < ApplicationController
   # GET /api/providers
   def index
-    render json: set_providers.to_json
+    @providers = Provider.all
+    render json: @providers
   end
 
   # GET /api/providers/1
   def show
-    render json: set_provider.to_json
+    @provider = Provider.find(params[:id])
+    render json: @provider
   end
 
   # POST /api/providers
