@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   # # Provider routes
   namespace :api, defaults: { format: :json } do
     resources :providers, only: [:index, :show, :create, :destroy]
+    resources :skills, only: [:index, :create, :destroy]
   end
   # match '*unmatched', to: 'application#route_not_found', via: :all
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_08_160218) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_184733) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,6 +60,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_160218) do
     t.string "twitter_profile"
   end
 
+  create_table "providers_skills", id: false, force: :cascade do |t|
+    t.bigint "provider_id", null: false
+    t.bigint "skill_id", null: false
+  end
+
   create_table "reservations", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "provider_id", null: false
@@ -74,10 +79,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_160218) do
 
   create_table "skills", force: :cascade do |t|
     t.string "name"
-    t.bigint "provider_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["provider_id"], name: "index_skills_on_provider_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -94,5 +97,4 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_08_160218) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "reservations", "providers"
   add_foreign_key "reservations", "users"
-  add_foreign_key "skills", "providers"
 end
