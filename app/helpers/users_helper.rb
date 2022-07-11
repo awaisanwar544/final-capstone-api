@@ -39,8 +39,7 @@ module UsersHelper
       email = JwtHelper::JsonWebToken.decode(token)
       return [false, 'Unauthorized user', :forbidden] if User.where(email:, token:).empty?
 
-      return [true, 'User ok', :ok, User.find_by_email(email)]
-
+      [true, 'User ok', :ok, User.find_by_email(email)]
     end
   end
 end

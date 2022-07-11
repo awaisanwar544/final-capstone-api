@@ -10,8 +10,8 @@ module JwtHelper
       data = JWT.decode(token, SECRET_KEY, true, { algorithm: 'HS256' })
       puts "Data decoded:#{data}"
       data[0]
-    # rescue StandardError
-    #   ''
+      # rescue StandardError
+      #   ''
     end
   end
 end

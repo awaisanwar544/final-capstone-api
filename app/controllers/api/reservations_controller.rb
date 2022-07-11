@@ -1,15 +1,14 @@
 class Api::ReservationsController < ApplicationController
-  
-  def get_user
+  def user_validation
     result = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
-    unless result[0]
-      return false
-    end
-    return result[3]
+    return false unless result[0]
+
+    result[3]
   end
+
   # GET api/reservations
   def index
-    @user = self.get_user
+    @user = user_validation
     if @user
       reservations = @user.reservations.all
       render json: reservations
@@ -20,7 +19,7 @@ class Api::ReservationsController < ApplicationController
 
   # POST api/reservations
   def create
-    @user = self.get_user
+    @user = user_validation
     @reservation = @user.reservations.new(reservation_params)
     @reservation.user_id = @user.id
     @reservation.provider_id = params[:provider_id]
@@ -34,9 +33,9 @@ class Api::ReservationsController < ApplicationController
 
   # DELETE api/reservations
   def destroy
-    @user = self.get_user
+    @user = user_validation
     @reservation = Reservation.find(params[:id])
-    
+
     unless @user.id == @reservation.user_id
       render json: { message: 'Invalid User' }
       return
@@ -54,5 +53,4 @@ class Api::ReservationsController < ApplicationController
   def reservation_params
     params.permit(:start_date, :end_date, :total_cost)
   end
-
 end
