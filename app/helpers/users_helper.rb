@@ -31,5 +31,17 @@ module UsersHelper
 
       true
     end
+
+    def self.valid_user_token?(header)
+      return [false, 'Invalid token', :unauthorized] unless header
+
+      token = header.split.last
+      id = JwtHelper::JsonWebToken.decode(token)
+      puts token
+      puts id
+      return [false, 'Unauthorized user', :forbidden] if User.where(id:, token:).empty?
+
+      return [true, 'User ok', :ok, User.find(id)]
+    end
   end
 end
