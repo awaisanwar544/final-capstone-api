@@ -1,10 +1,15 @@
 class Api::ReservationsController < ApplicationController
   # GET api/reservation
   def index
-    resolve = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
-    user = resolve[3] if resolve[0]
-    @reservations = user.reservations.all
-    render json: @reservations
+    result = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
+    # result = UsersHelper::Validator.valid_user_token?('Bearer eyJhbGciOiJIUzI1NiJ9.bnVsbA.vdmTmedbjb6wZjzwL-u9n3uU447A_T1wQNzbYO6Doa8')
+    unless result[0]
+      render json: '{"error":"Invalid user"}'
+      return
+    end
+    user = result[3]
+    reservations = user.reservations.all
+    render json: reservations
   end
 
   # POST api/reservation
