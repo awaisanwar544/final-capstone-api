@@ -1,8 +1,8 @@
 class Provider < ApplicationRecord
   include Rails.application.routes.url_helpers
 
-  has_many :reservations
-  has_many :skills
+  has_many :reservations, dependent: :destroy
+  has_and_belongs_to_many :skills, dependent: :destroy
   has_one_attached :image
 
   validates :name, presence: true, length: { maximum: 50 }
