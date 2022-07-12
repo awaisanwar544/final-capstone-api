@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   namespace :api, defaults: { format: :json } do
     # Provider routes
     resources :providers, only: [:index, :show, :create, :destroy]
+    # Skill routes
+    resources :skills, only: [:index, :create, :destroy]
     # Reservation routes
     resources :reservations, only: [:index, :show, :create, :destroy]
   end
