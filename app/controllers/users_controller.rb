@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  def resetpassword; end
+
   def authenticate
     valid, error, status = UsersHelper::Validator.valid_app_token?(request.headers['Authorization'])
     unless valid

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'api/user/add', to: 'users#add', as: 'add_user_path'
   put 'api/user', to: 'users#change_password', as: 'change_password'
   # Password recovery
+  get 'resetpassword', to: 'users#resetpassword', as: 'resetpassword'
   post 'api/password/forgot', to: 'passwords#forgot'
   get 'api/password/validate_reset_token', to: 'passwords#validate_reset_token'
   post 'api/password/reset', to: 'passwords#reset'
