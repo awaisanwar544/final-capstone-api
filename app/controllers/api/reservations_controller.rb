@@ -1,25 +1,27 @@
 class Api::ReservationsController < ApplicationController
   def user_validation
-    result = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
-    return false unless result[0]
-
-    result[3]
+    user, error, status = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
+    unless user
+      render json: { 'error:': error }, status: status
+      return
+    end
+    user
   end
 
   # GET api/reservations
   def index
     @user = user_validation
-    if @user
-      reservations = @user.reservations.all
-      render json: reservations
-    else
-      render json: '{"error":"Invalid user"}'
-    end
+    return unless @user
+
+    reservations = @user.reservations.all
+    render json: reservations
   end
 
   # POST api/reservations
   def create
     @user = user_validation
+    return unless @user
+
     @reservation = @user.reservations.new(reservation_params)
     @reservation.user_id = @user.id
     @reservation.provider_id = params[:provider_id]
@@ -34,10 +36,17 @@ class Api::ReservationsController < ApplicationController
   # DELETE api/reservations
   def destroy
     @user = user_validation
-    @reservation = Reservation.find(params[:id])
+    return unless @user
+
+    begin
+      @reservation = Reservation.find(params[:id])
+    rescue StandardError
+      render json: { message: "Couldn't find Reservation with 'id'=#{params[:id]}" }, status: :bad_request
+      return
+    end
 
     unless @user.id == @reservation.user_id
-      render json: { message: 'Invalid User' }
+      render json: { message: 'Invalid User' }, status: :unauthorized
       return
     end
 
@@ -51,6 +60,6 @@ class Api::ReservationsController < ApplicationController
   private
 
   def reservation_params
-    params.permit(:start_date, :end_date, :total_cost)
+    params.permit(:provider_id, :start_date, :end_date, :total_cost)
   end
 end
