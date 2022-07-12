@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   put 'api/user', to: 'users#change_password', as: 'change_password'
   # Password recovery
   post 'api/password/forgot', to: 'passwords#forgot'
+  get 'api/password/validate_reset_token', to: 'passwords#validate_reset_token'
   post 'api/password/reset', to: 'passwords#reset'
 
   namespace :api, defaults: { format: :json } do
