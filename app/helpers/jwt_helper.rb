@@ -6,7 +6,8 @@ module JwtHelper
     end
 
     def self.decode(token)
-      JWT.decode(token, SECRET_KEY, true, { algorithm: 'HS256' })[0]
+      data = JWT.decode(token, SECRET_KEY, true, { algorithm: 'HS256' })
+      data[0]
     rescue StandardError
       ''
     end

@@ -8,6 +8,6 @@ class User < ApplicationRecord
   private
 
   def add_token
-    self.token = JwtHelper::JsonWebToken.encode(id)
+    self.token = JwtHelper::JsonWebToken.encode(email)
   end
 end
