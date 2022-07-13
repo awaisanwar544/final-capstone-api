@@ -3,7 +3,7 @@ class Api::SkillsController < ApplicationController
     result = UsersHelper::Validator.valid_user_token?(request.headers['Authorization'])
     return false unless result[0]
 
-    @user = result[3]
+    @user = result[0]
     @user.admin?
   end
 
