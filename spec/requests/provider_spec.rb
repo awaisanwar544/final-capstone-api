@@ -30,7 +30,7 @@ RSpec.describe Api::ProvidersController, type: :controller do
         image: fixture_file_upload('victor.jpg', 'image/png'),
         skills: ['Ruby']
       }
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(:created)
       provider = Provider.order(:created_at).last
       assert provider.image.attached?
     end
@@ -73,7 +73,7 @@ RSpec.describe Api::ProvidersController, type: :controller do
     it 'Unprocessable due to missing bio' do
       request.headers['Authorization'] = "Bearer #{@admin.token}"
       post :create, params: {
-        name: '', github_profile: 'https://github.com/VicPeralta',
+        name: 'Victor', github_profile: 'https://github.com/VicPeralta',
         cost: 10, image: fixture_file_upload('victor.jpg', 'image/png'), skills: ['Ruby']
       }
       expect(response).to have_http_status(:unprocessable_entity)
@@ -84,7 +84,7 @@ RSpec.describe Api::ProvidersController, type: :controller do
     it 'Unprocessable due to missing image' do
       request.headers['Authorization'] = "Bearer #{@admin.token}"
       post :create, params: {
-        name: '',
+        name: 'Victor',
         bio: 'A programmer from Mexico',
         github_profile: 'https://github.com/VicPeralta',
         cost: 10,

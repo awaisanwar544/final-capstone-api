@@ -9,7 +9,7 @@ class Api::SkillsController < ApplicationController
 
   # GET /api/skills
   def index
-    render json: set_skills.to_json
+    render json: set_skills.to_json, status: :ok
   end
 
   # POST /api/skills
@@ -18,7 +18,7 @@ class Api::SkillsController < ApplicationController
 
     skill = Skill.new(skill_params)
     if skill.save
-      render json: { message: 'Skill created!' }
+      render json: { message: 'Skill created!' }, status: :created
     else
       render json: skill.errors, status: :unprocessable_entity
     end
@@ -30,7 +30,7 @@ class Api::SkillsController < ApplicationController
 
     skill = Skill.find(params[:id])
     if skill.destroy
-      render json: { message: 'Skill deleted!' }
+      render json: { message: 'Skill deleted!' }, status: :ok
     else
       render json: skill.errors, status: :unprocessable_entity
     end
