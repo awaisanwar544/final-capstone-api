@@ -15,7 +15,7 @@ class Api::ProvidersController < ApplicationController
       render json: { 'error:': error }, status: status
       return
     end
-    render json: set_providers.to_json
+    render json: set_providers.to_json, status: :ok
   end
 
   # GET /api/providers/1
@@ -26,7 +26,7 @@ class Api::ProvidersController < ApplicationController
       render json: { 'error:': error }, status: status
       return
     end
-    render json: set_provider.to_json
+    render json: set_provider.to_json, status: :ok
   end
 
   # POST /api/providers
@@ -38,7 +38,7 @@ class Api::ProvidersController < ApplicationController
       @provider.skills.push(Skill.find_by(name: skill))
     end
     if @provider.save
-      render json: { message: 'Provider created' }
+      render json: { message: 'Provider created' }, status: :created
     else
       render json: @provider.errors, status: :unprocessable_entity
     end
@@ -50,7 +50,7 @@ class Api::ProvidersController < ApplicationController
 
     @provider = Provider.find(params[:id])
     if @provider.destroy
-      render json: { message: 'Provider deleted' }
+      render json: { message: 'Provider deleted' }, status: :ok
     else
       render json: @provider.errors, status: :unprocessable_entity
     end

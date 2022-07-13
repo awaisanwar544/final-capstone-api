@@ -14,7 +14,7 @@ class Api::ReservationsController < ApplicationController
     return unless @user
 
     reservations = @user.reservations.all
-    render json: reservations
+    render json: reservations, status: :ok
   end
 
   # POST api/reservations
