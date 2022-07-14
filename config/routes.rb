@@ -18,5 +18,4 @@ Rails.application.routes.draw do
     # Reservation routes
     resources :reservations, only: [:index, :create, :destroy]
   end
-  match '*unmatched', to: 'application#route_not_found', via: :all
 end
