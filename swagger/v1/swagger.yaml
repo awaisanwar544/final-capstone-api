@@ -1,13 +1,13 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "API V1",
+    "title": "BookDev API",
     "version": "v1"
   },
   "paths": {
     "/api/providers": {
       "get": {
-        "summary": "Get Providers",
+        "summary": "Get providers list with API token",
         "security": [
           {
             "BearerAuth": [
@@ -17,16 +17,16 @@
         ],
         "responses": {
           "200": {
-            "description": "Providers list",
+            "description": "Get Providers list successfully",
             "content": {
               "application/json": {
                 "example": [
                   {
-                    "id": 148,
+                    "id": 165,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3634e1878ff9a056f399cfaa526dce04d2b7470d/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYVE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--ce1c65f9fc5b1b426586f545037840d210638af3/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -35,11 +35,11 @@
                     ]
                   },
                   {
-                    "id": 149,
+                    "id": 166,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c437ed66d81a8ba5b9c9a860850e4a46443143fb/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYVU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--628029a8e0daafda444e5109ea1920deed39902c/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -48,11 +48,11 @@
                     ]
                   },
                   {
-                    "id": 150,
+                    "id": 164,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--85278c5e10327a00681bb946345ccdd16e834cd3/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYU09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0ed1ebdcf68dd342104d2d06145b7b1280b83c53/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -124,7 +124,7 @@
         }
       },
       "post": {
-        "summary": "Create Provider",
+        "summary": "Create a provider with User token",
         "security": [
           {
             "BearerAuth": [
@@ -212,7 +212,7 @@
     },
     "/api/providers/{id}": {
       "delete": {
-        "summary": "Delete a Provider",
+        "summary": "Delete a provider with User token",
         "security": [
           {
             "BearerAuth": [
@@ -256,7 +256,7 @@
         }
       },
       "get": {
-        "summary": "Get a Provider'info",
+        "summary": "Get a provider's info with API token",
         "security": [
           {
             "BearerAuth": [
@@ -282,11 +282,11 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 148,
+                  "id": 164,
                   "name": "Victor",
                   "bio": "A programmer from Mexico",
                   "cost": "10.0",
-                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3634e1878ff9a056f399cfaa526dce04d2b7470d/victor.jpg",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBYU09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0ed1ebdcf68dd342104d2d06145b7b1280b83c53/victor.jpg",
                   "github_profile": "https://github.com/VicPeralta",
                   "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                   "twitter_profile": "https://twitter.com/VicPeralta",
@@ -302,7 +302,7 @@
     },
     "/api/user/add": {
       "post": {
-        "summary": "Sign up a new user",
+        "summary": "Sign up a new user with API token",
         "security": [
           {
             "BearerAuth": [
@@ -384,7 +384,7 @@
     },
     "/api/user": {
       "post": {
-        "summary": "Log in user",
+        "summary": "Log in user with API token",
         "security": [
           {
             "BearerAuth": [
@@ -452,7 +452,7 @@
       "url": "https://{defaultHost}",
       "variables": {
         "defaultHost": {
-          "default": "www.example.com"
+          "default": "bookdev-api.herokuapp.com/"
         }
       }
     }

@@ -36,9 +36,9 @@ RSpec.describe 'Providers API', type: :request do
   end
 
   path '/api/providers' do
-    get 'Get Providers' do
+    get 'Get providers list with API token' do
       security [BearerAuth: []]
-      response '200', 'Providers list' do
+      response '200', 'Get Providers list successfully' do
         let(:Authorization) { "Bearer #{@api.token}" }
         produces 'application/json'
         examples
@@ -68,7 +68,7 @@ RSpec.describe 'Providers API', type: :request do
   end
 
   path '/api/providers/{id}' do
-    delete 'Delete a Provider' do
+    delete 'Delete a provider with User token' do
       security [BearerAuth: []]
       examples
       parameter name: :id, in: :path, type: :integer, required: true,
@@ -95,7 +95,7 @@ RSpec.describe 'Providers API', type: :request do
   end
 
   path '/api/providers/{id}' do
-    get 'Get a Provider\'info' do
+    get 'Get a provider\'s info with API token' do
       security [BearerAuth: []]
       examples
       parameter name: :id, in: :path, type: :integer, required: true,
@@ -116,7 +116,7 @@ RSpec.describe 'Providers API', type: :request do
   end
   # rubocop:disable Metrics
   path '/api/providers' do
-    post 'Create Provider' do
+    post 'Create a provider with User token' do
       consumes 'multipart/form-data'
       produces 'application/json'
       security [BearerAuth: []]
