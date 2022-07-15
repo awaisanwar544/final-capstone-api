@@ -152,11 +152,11 @@
               "application/json": {
                 "example": [
                   {
-                    "id": 129,
+                    "id": 17,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWkk9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--611b78e7a57bc1b50c858a605a620f49310fa2f0/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--277298c95ce140cb87b21cfcf323b83454bfd32c/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -165,11 +165,11 @@
                     ]
                   },
                   {
-                    "id": 130,
+                    "id": 18,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7d28445f0bf34b1573efec325bd54ce7f3aed8c9/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f2f7ec58c7eeec156293ff8a557eb46aa8e91ea1/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -178,11 +178,11 @@
                     ]
                   },
                   {
-                    "id": 131,
+                    "id": 19,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4c78609f8fe660d749f82cc6d21f204bb9bb931e/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--930c0ec1ac9a736956a4a37bd1c4d6fd982af6bf/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -318,7 +318,7 @@
                     "example": 10
                   },
                   "skills": {
-                    "type": "string",
+                    "type": "array",
                     "example": [
                       "Ruby"
                     ]
@@ -412,11 +412,11 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 129,
+                  "id": 17,
                   "name": "Victor",
                   "bio": "A programmer from Mexico",
                   "cost": "10.0",
-                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWkk9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--611b78e7a57bc1b50c858a605a620f49310fa2f0/victor.jpg",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--277298c95ce140cb87b21cfcf323b83454bfd32c/victor.jpg",
                   "github_profile": "https://github.com/VicPeralta",
                   "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                   "twitter_profile": "https://twitter.com/VicPeralta",
@@ -449,14 +449,14 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 53,
+                  "id": 4,
                   "user_id": 1,
                   "provider_id": 1,
                   "start_date": "2022-08-08",
                   "end_date": "2022-08-12",
                   "total_cost": "40.0",
-                  "created_at": "2022-07-15T19:31:41.531Z",
-                  "updated_at": "2022-07-15T19:31:41.531Z"
+                  "created_at": "2022-07-15T22:34:43.369Z",
+                  "updated_at": "2022-07-15T22:34:43.369Z"
                 }
               }
             }
@@ -472,7 +472,7 @@
             }
           },
           "422": {
-            "description": "invalid request",
+            "description": "Invalid request",
             "content": {
               "application/json": {
                 "example": {
@@ -536,13 +536,13 @@
                 "example": [
                   {
                     "id": 1,
-                    "user_id": 1,
                     "provider_id": 1,
                     "start_date": "2022-08-08",
                     "end_date": "2022-08-14",
                     "total_cost": "60.0",
-                    "created_at": "2022-07-15T19:31:41.516Z",
-                    "updated_at": "2022-07-15T19:31:41.516Z"
+                    "created_at": "2022-07-15T22:34:43.347Z",
+                    "provider_name": "Victor",
+                    "provider_image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b99e41e577fc12fbdfba85238785ef721922413/victor.jpg"
                   }
                 ]
               }
@@ -638,7 +638,7 @@
                 "example": {
                   "name": "Victor",
                   "email": "victor.peralta.gomez@gmail.com",
-                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3Rvci5wZXJhbHRhLmdvbWV6QGdtYWlsLmNvbSI.kEwDeXJ7SdyFWwOtuKmV1Z7JQhtqT4-N3TRSgaELkQA",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3Rvci5wZXJhbHRhLmdvbWV6QGdtYWlsLmNvbSI.LsrGBYiarqSofqJLfgw8PQga-TvZ8uZELKhz-XJWfuc",
                   "admin": true
                 }
               }
@@ -720,7 +720,7 @@
                 "example": {
                   "name": "Victor",
                   "email": "victorperaltagomez@gmail.com",
-                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3RvcnBlcmFsdGFnb21lekBnbWFpbC5jb20i.vaQagfHr4nyV4eo0CAgMqPx2gI4-lXLFneZNz5-C4UU",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3RvcnBlcmFsdGFnb21lekBnbWFpbC5jb20i.BCHQ-97ZtFCfiiF8MnRRF4e9edg5nbWVn3kpHc3r6dc",
                   "admin": false
                 }
               }

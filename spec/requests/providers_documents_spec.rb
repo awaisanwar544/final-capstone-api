@@ -126,7 +126,7 @@ RSpec.describe 'Providers API', type: :request do
           name: { type: :string, example: 'Victor Peralta' },
           bio: { type: :string, example: 'A programmer from Mexico' },
           cost: { type: :integer, example: 10 },
-          skills: { type: :string, example: ['Ruby'] },
+          skills: { type: :array, example: ['Ruby'] },
           image: { type: :file }
         },
         required: %w[name bio cost skills image]
