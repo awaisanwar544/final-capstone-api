@@ -5,6 +5,301 @@
     "version": "v1"
   },
   "paths": {
+    "/api/providers": {
+      "get": {
+        "summary": "Get Providers",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Providers list",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 148,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3634e1878ff9a056f399cfaa526dce04d2b7470d/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  },
+                  {
+                    "id": 149,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--c437ed66d81a8ba5b9c9a860850e4a46443143fb/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  },
+                  {
+                    "id": 150,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlU9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--85278c5e10327a00681bb946345ccdd16e834cd3/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  }
+                ],
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "bio": {
+                      "type": "string"
+                    },
+                    "cost": {
+                      "type": "decimal"
+                    },
+                    "github_profile": {
+                      "type": "string"
+                    },
+                    "linkedin_profile": {
+                      "type": "string"
+                    },
+                    "twitter_profile": {
+                      "type": "string"
+                    },
+                    "skills": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "bio"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized App",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized app"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create Provider",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a provider with an admin",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Provider created"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Create a provider with a user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Admin access required"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Create a provider with incorrect data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": [
+                    "can't be blank"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Victor Peralta"
+                  },
+                  "bio": {
+                    "type": "string",
+                    "example": "A programmer from Mexico"
+                  },
+                  "cost": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "skills": {
+                    "type": "string",
+                    "example": [
+                      "Ruby"
+                    ]
+                  },
+                  "image": {
+                    "type": "file"
+                  }
+                },
+                "required": [
+                  "name",
+                  "bio",
+                  "cost",
+                  "skills",
+                  "image"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/providers/{id}": {
+      "delete": {
+        "summary": "Delete a Provider",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The provider's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete a provider with an Admin",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Provider deleted"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Delete a provider with a User",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Admin access required"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a Provider'info",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The provider's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get provider's info",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 148,
+                  "name": "Victor",
+                  "bio": "A programmer from Mexico",
+                  "cost": "10.0",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--3634e1878ff9a056f399cfaa526dce04d2b7470d/victor.jpg",
+                  "github_profile": "https://github.com/VicPeralta",
+                  "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                  "twitter_profile": "https://twitter.com/VicPeralta",
+                  "skills": [
+
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/user/add": {
       "post": {
         "summary": "Sign up a new user",
@@ -20,13 +315,37 @@
         ],
         "responses": {
           "200": {
-            "description": "user sign up"
-          },
-          "400": {
-            "description": "password too short"
+            "description": "user signed up",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": "Victor",
+                  "email": "victor.peralta.gomez@gmail.com",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3Rvci5wZXJhbHRhLmdvbWV6QGdtYWlsLmNvbSI.LsrGBYiarqSofqJLfgw8PQga-TvZ8uZELKhz-XJWfuc",
+                  "admin": true
+                }
+              }
+            }
           },
           "401": {
-            "description": "email already taken"
+            "description": "email already taken",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "email already taken"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Parameter",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "password too short"
+                }
+              }
+            }
           }
         },
         "requestBody": {
@@ -38,7 +357,7 @@
                   "email": {
                     "type": "string",
                     "format": "email",
-                    "example": "victor.peralta.gomez@gmail.com"
+                    "example": "victorperaltagomez@gmail.com"
                   },
                   "password": {
                     "type": "string",
@@ -55,6 +374,70 @@
                 "required": [
                   "email",
                   "name",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "post": {
+        "summary": "Log in user",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "user signed in",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": "Victor",
+                  "email": "victorperaltagomez@gmail.com",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3RvcnBlcmFsdGFnb21lekBnbWFpbC5jb20i.BCHQ-97ZtFCfiiF8MnRRF4e9edg5nbWVn3kpHc3r6dc",
+                  "admin": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Invalid Password"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "victor.peralta.gomez@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "holahola"
+                  }
+                },
+                "required": [
+                  "email",
                   "password"
                 ]
               }
