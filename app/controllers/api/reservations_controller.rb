@@ -70,7 +70,7 @@ class Api::ReservationsController < ApplicationController
         total_cost: reservation.total_cost,
         created_at: reservation.created_at,
         provider_name: reservation.provider.name,
-        provider_image: reservation.provider.image
+        provider_image: url_for(reservation.provider.image)
       )
     end
     reser
