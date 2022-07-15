@@ -5,6 +5,100 @@
     "version": "v1"
   },
   "paths": {
+    "/api/password/forgot": {
+      "post": {
+        "summary": "Send email for password recovery",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Reset password email sent"
+          },
+          "404": {
+            "description": "Email address not found. Please check and try again."
+          },
+          "422": {
+            "description": "Email not present"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "victor.peralta.gomez@gmail.com"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/password/reset": {
+      "post": {
+        "summary": "Change user password with token sent by email",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Reset password email sent"
+          },
+          "404": {
+            "description": "Email address not found. Please check and try again."
+          },
+          "422": {
+            "description": "Email not present"
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "new_password": {
+                    "type": "string",
+                    "example": "123456"
+                  },
+                  "reset_password_token": {
+                    "type": "string",
+                    "example": "d9cae7e946dd6333d5f5"
+                  }
+                },
+                "required": [
+                  "new_password",
+                  "reset_password_token"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
     "/api/user/add": {
       "post": {
         "summary": "Sign up a new user",

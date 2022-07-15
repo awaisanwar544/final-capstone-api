@@ -21,7 +21,7 @@ RSpec.describe 'Users API', type: :request do
         type: :object,
         properties: {
           email: { type: :string, format: :email, example: 'victor.peralta.gomez@gmail.com' },
-          password: { type: :string, example: 'holahola'},
+          password: { type: :string, example: 'holahola' },
           name: { type: :string, example: 'Victor Peralta' },
           admin: { type: :boolean }
         },
