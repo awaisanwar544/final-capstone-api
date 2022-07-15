@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  
+  mount Rswag::Ui::Engine => '/api-docs'
+  mount Rswag::Api::Engine => '/api-docs'
+  root 'application#home'
   # Users routes
   post 'api/user', to: 'users#authenticate', as: 'authentication_user'
   post 'api/user/add', to: 'users#add', as: 'add_user_path'
@@ -18,5 +20,4 @@ Rails.application.routes.draw do
     # Reservation routes
     resources :reservations, only: [:index, :create, :destroy]
   end
-  match '*unmatched', to: 'application#route_not_found', via: :all
 end

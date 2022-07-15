@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::API
-  def route_not_found
-    render json: { error: 'Not Found' }, status: :not_found
+  def home
+    redirect_to rswag_ui_path
   end
 end
