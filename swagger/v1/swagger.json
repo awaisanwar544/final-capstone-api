@@ -152,11 +152,11 @@
               "application/json": {
                 "example": [
                   {
-                    "id": 60,
+                    "id": 129,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--419767ff92f73d6a27947a219ec4ad3d9aac6c4c/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWkk9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--611b78e7a57bc1b50c858a605a620f49310fa2f0/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -165,11 +165,11 @@
                     ]
                   },
                   {
-                    "id": 61,
+                    "id": 130,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8a3d78fdc64d7961d8b4b606781557b6f93834d1/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWk09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7d28445f0bf34b1573efec325bd54ce7f3aed8c9/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -178,11 +178,11 @@
                     ]
                   },
                   {
-                    "id": 62,
+                    "id": 131,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--0b5a7b9455037f2511db1bc625fa8d47ea2d380f/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWlE9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--4c78609f8fe660d749f82cc6d21f204bb9bb931e/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -412,17 +412,204 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 60,
+                  "id": 129,
                   "name": "Victor",
                   "bio": "A programmer from Mexico",
                   "cost": "10.0",
-                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBRUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--419767ff92f73d6a27947a219ec4ad3d9aac6c4c/victor.jpg",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBWkk9IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--611b78e7a57bc1b50c858a605a620f49310fa2f0/victor.jpg",
                   "github_profile": "https://github.com/VicPeralta",
                   "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                   "twitter_profile": "https://twitter.com/VicPeralta",
                   "skills": [
 
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservations": {
+      "post": {
+        "summary": "Create a reservation with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "Reservation created",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 53,
+                  "user_id": 1,
+                  "provider_id": 1,
+                  "start_date": "2022-08-08",
+                  "end_date": "2022-08-12",
+                  "total_cost": "40.0",
+                  "created_at": "2022-07-15T19:31:41.531Z",
+                  "updated_at": "2022-07-15T19:31:41.531Z"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "invalid request",
+            "content": {
+              "application/json": {
+                "example": {
+                  "total_cost": [
+                    "can't be blank",
+                    "is not a number"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider_id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "start_date": {
+                    "type": "date",
+                    "example": "2022-08-08"
+                  },
+                  "end_date": {
+                    "type": "date",
+                    "example": "2022-08-12"
+                  },
+                  "total_cost": {
+                    "type": "decimal",
+                    "example": "10"
+                  }
+                },
+                "required": [
+                  "provider_id",
+                  "start_date",
+                  "end_date",
+                  "total_cost"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List all reservations with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Reservation list",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "user_id": 1,
+                    "provider_id": 1,
+                    "start_date": "2022-08-08",
+                    "end_date": "2022-08-14",
+                    "total_cost": "60.0",
+                    "created_at": "2022-07-15T19:31:41.516Z",
+                    "updated_at": "2022-07-15T19:31:41.516Z"
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservations/{id}": {
+      "delete": {
+        "summary": "Delete a reservation with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The reservation's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservation deleted",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Reservation deleted"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Reservation not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Couldn't find Reservation with 'id'=0"
                 }
               }
             }

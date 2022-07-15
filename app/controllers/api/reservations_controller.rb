@@ -13,8 +13,8 @@ class Api::ReservationsController < ApplicationController
     @user = user_validation
     return unless @user
 
-    reservations = @user.reservations.all
-    render json: reservations, status: :ok
+    @reservations = reservations_all
+    render json: @reservations, status: :ok
   end
 
   # POST api/reservations
@@ -57,6 +57,24 @@ class Api::ReservationsController < ApplicationController
   end
 
   private
+
+  def reservations_all
+    reser = []
+    reservations = @user.reservations.includes(:provider)
+    reservations.each do |reservation|
+      reser.push(
+        id: reservation.id,
+        provider_id: reservation.provider_id,
+        start_date: reservation.start_date,
+        end_date: reservation.end_date,
+        total_cost: reservation.total_cost,
+        created_at: reservation.created_at,
+        provider_name: reservation.provider.name,
+        provider_image: reservation.provider.image
+      )
+    end
+    reser
+  end
 
   def reservation_params
     params.permit(:provider_id, :start_date, :end_date, :total_cost)

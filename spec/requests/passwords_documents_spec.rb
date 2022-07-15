@@ -69,13 +69,6 @@ RSpec.describe 'Passwords API', type: :request do
         let(:user) { { new_password: '121212', reset_token: 'd9cae7e946dd6333d5f5999' } }
         run_test!
       end
-
-      # response '422', 'Link not valid or expired. Try generating a new link.' do
-      #   let(:Authorization) { "Bearer #{@api.token}" }
-      #   User.last.update({ reset_password_sent_at: Time.now - 10.hours })
-      #   let(:user) { { new_password: '121212', reset_password_token: 'd9cae7e946dd6333d5f5' } }
-      #   run_test!
-      # end
     end
   end
 end
