@@ -1,6 +1,6 @@
 # BookDev API
 
-This is the back-end API for BookDev, an app in which you can hire a programmer for a number at a fixed rate per day [Link to the UI](https://book-dev.herokuapp.com/).
+This is the back-end API for BookDev, an app in which you can hire a programmer for a number at a fixed rate per day [Link to the UI repo](https://github.com/awaisanwar544/final-capstone-ui).
 
 - Sign up and sign in to access the app.
 - Choose for our expert programmer with on-demand skills.
@@ -41,6 +41,8 @@ To get a local copy up and running follow these simple example steps.
 
 
 ## Deployment
+
+[Live UI](https://book-dev.herokuapp.com/)
 
 [API Link](https://bookdev-api.herokuapp.com/)
 
