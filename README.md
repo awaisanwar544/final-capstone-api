@@ -1,17 +1,23 @@
 # BookDev API
 
-This is the back-end API for BookDev, an app in which you can hire a programmer for a number at a fixed rate per day [Link to the UI repo](https://github.com/awaisanwar544/final-capstone-ui).
+This is the back-end API for BookDev, an app in which you can temporarily hire a programmer at a fixed rate per day.
 
 - Sign up and sign in to access the app.
-- Choose for our expert programmer with on-demand skills.
-- Watch a detailed view of each programmer.
-- Reserve and hire a programmer up to one month from any date up to six months.
-- Manage all your reservations in only one page.
+- Choose from our expert programmers with in-demand skills.
+- Watch a detailed view of each programmer profile.
+- Reserve and hire a programmer up to one month from any date within the next six months.
+- Manage all your reservations from one page.
 - Admin users can add and delete providers if needed.
 
-The API has endpoints for users / providers / skills / password recovery.
+The API has endpoints for users / providers / reservations / skills / password recovery.
 
 Read the complete documentation [here](https://bookdev-api.herokuapp.com/api-docs/index.html).
+
+
+## UI Repo
+
+Check the UI of this App [here](https://github.com/awaisanwar544/final-capstone-ui).
+
 
 ## Built With
 
@@ -32,6 +38,7 @@ To get a local copy up and running follow these simple example steps.
 - Execute `rails db:migrate` to migrate the database.
 - Run `rails s` to run the application.
 
+
 ## Tests
 
 - If you want to run some unit tests, all you need to do is:
@@ -45,6 +52,7 @@ To get a local copy up and running follow these simple example steps.
 [Live UI](https://book-dev.herokuapp.com/)
 
 [API Link](https://bookdev-api.herokuapp.com/)
+
 
 ## Authors
 👤 **Lucas Bonnefon**
