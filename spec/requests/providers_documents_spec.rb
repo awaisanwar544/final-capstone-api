@@ -41,7 +41,6 @@ RSpec.describe 'Providers API', type: :request do
       response '200', 'Get Providers list successfully' do
         let(:Authorization) { "Bearer #{@api.token}" }
         produces 'application/json'
-        examples
         schema type: :array,
                properties: {
                  id: { type: :integer }, name: { type: :string },
@@ -70,7 +69,6 @@ RSpec.describe 'Providers API', type: :request do
   path '/api/providers/{id}' do
     delete 'Delete a provider with User token' do
       security [BearerAuth: []]
-      examples
       parameter name: :id, in: :path, type: :integer, required: true,
                 example: 1, description: 'The provider\'s ID'
       response '200', 'Delete a provider with an Admin' do
@@ -97,7 +95,6 @@ RSpec.describe 'Providers API', type: :request do
   path '/api/providers/{id}' do
     get 'Get a provider\'s info with API token' do
       security [BearerAuth: []]
-      examples
       parameter name: :id, in: :path, type: :integer, required: true,
                 example: 1, description: 'The provider\'s ID'
       response '200', 'Get provider\'s info' do

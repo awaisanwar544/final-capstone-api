@@ -41,7 +41,7 @@ RSpec.configure do |config|
     }
   }
   config.after do |example|
-    unless response.body.empty?
+    if !response.body.empty? && example.metadata[:type] == :request
       example.metadata[:response][:content] = {
         'application/json' => {
           example: JSON.parse(response.body, symbolize_names: true)

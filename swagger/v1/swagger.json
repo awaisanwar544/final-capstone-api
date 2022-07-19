@@ -152,11 +152,11 @@
               "application/json": {
                 "example": [
                   {
-                    "id": 17,
+                    "id": 367,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--277298c95ce140cb87b21cfcf323b83454bfd32c/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcElCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--356b7395a2d92c281d77068e416b25005ca704c4/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -165,11 +165,11 @@
                     ]
                   },
                   {
-                    "id": 18,
+                    "id": 368,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--f2f7ec58c7eeec156293ff8a557eb46aa8e91ea1/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcE1CIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bd66d5584d9b29d6fe28f32435e6ee00b09695c1/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -178,11 +178,11 @@
                     ]
                   },
                   {
-                    "id": 19,
+                    "id": 369,
                     "name": "Victor",
                     "bio": "A programmer from Mexico",
                     "cost": "10.0",
-                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHdz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--930c0ec1ac9a736956a4a37bd1c4d6fd982af6bf/victor.jpg",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcFFCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b2b5661c573e6faf84cce014cb53fe0bf2bfd2a1/victor.jpg",
                     "github_profile": "https://github.com/VicPeralta",
                     "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                     "twitter_profile": "https://twitter.com/VicPeralta",
@@ -412,11 +412,11 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 17,
+                  "id": 367,
                   "name": "Victor",
                   "bio": "A programmer from Mexico",
                   "cost": "10.0",
-                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBHUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--277298c95ce140cb87b21cfcf323b83454bfd32c/victor.jpg",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcElCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--356b7395a2d92c281d77068e416b25005ca704c4/victor.jpg",
                   "github_profile": "https://github.com/VicPeralta",
                   "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
                   "twitter_profile": "https://twitter.com/VicPeralta",
@@ -449,14 +449,14 @@
             "content": {
               "application/json": {
                 "example": {
-                  "id": 4,
+                  "id": 185,
                   "user_id": 1,
                   "provider_id": 1,
                   "start_date": "2022-08-08",
                   "end_date": "2022-08-12",
                   "total_cost": "40.0",
-                  "created_at": "2022-07-15T22:34:43.369Z",
-                  "updated_at": "2022-07-15T22:34:43.369Z"
+                  "created_at": "2022-07-19T18:23:44.287Z",
+                  "updated_at": "2022-07-19T18:23:44.287Z"
                 }
               }
             }
@@ -540,9 +540,9 @@
                     "start_date": "2022-08-08",
                     "end_date": "2022-08-14",
                     "total_cost": "60.0",
-                    "created_at": "2022-07-15T22:34:43.347Z",
+                    "created_at": "2022-07-19T18:23:44.254Z",
                     "provider_name": "Victor",
-                    "provider_image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIUT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--7b99e41e577fc12fbdfba85238785ef721922413/victor.jpg"
+                    "provider_image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcFlCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eee4b0ad76b52b2deaf347a3da099279bf00efe8/victor.jpg"
                   }
                 ]
               }
