@@ -17,6 +17,6 @@ class Reservation < ApplicationRecord
   end
 
   def total_cost_calculation
-    self.total_cost = (end_date - start_date).to_i * provider.cost
+    self.total_cost = ((end_date - start_date).to_i + 1) * provider.cost
   end
 end
