@@ -53,6 +53,17 @@ To get a local copy up and running follow these simple example steps.
 
 [API Link](https://bookdev-api.herokuapp.com/)
 
+## Kanban Board
+
+Link to backend(API) kanban board: https://github.com/awaisanwar544/final-capstone-api/projects/1
+
+At the beginning of the project
+
+![Start_kanban_board](assets/Kanban_start.png)
+
+At the end of the project
+
+![End_kanban_board](assets/Kanban_end.PNG)
 
 ## Authors
 👤 **Lucas Bonnefon**
