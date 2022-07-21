@@ -13,8 +13,6 @@ The API has endpoints for users / providers / reservations / skills / password r
 
 Read the complete documentation [here](https://bookdev-api.herokuapp.com/api-docs/index.html).
 
-In this project 5 developers have participated, connect with them in the [authors](#authors) section.
-
 ## UI Repo
 
 Check the UI of this App [here](https://github.com/awaisanwar544/final-capstone-ui).
@@ -55,6 +53,8 @@ To get a local copy up and running follow these simple example steps.
 [API Link](https://bookdev-api.herokuapp.com/)
 
 ## Kanban Board
+
+In this project 5 developers have participated, connect with them in the [authors](#authors) section.
 
 Check out the backend(API) kanban board: https://github.com/awaisanwar544/final-capstone-api/projects/1
 
