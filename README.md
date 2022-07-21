@@ -1,6 +1,6 @@
 # BookDev API
 
-This is the back-end API for BookDev, an app in which you can temporarily hire a programmer at a fixed rate per day.
+This is the back-end API for BookDev, an app in which you can temporarily hire a programmer at a fixed rate per day. 
 
 - Sign up and sign in to access the app.
 - Choose from our expert programmers with in-demand skills.
@@ -13,6 +13,7 @@ The API has endpoints for users / providers / reservations / skills / password r
 
 Read the complete documentation [here](https://bookdev-api.herokuapp.com/api-docs/index.html).
 
+In this project 5 developers have participated, connect with them in the [authors](#authors) section.
 
 ## UI Repo
 
@@ -55,15 +56,11 @@ To get a local copy up and running follow these simple example steps.
 
 ## Kanban Board
 
-Link to backend(API) kanban board: https://github.com/awaisanwar544/final-capstone-api/projects/1
+Check out the backend(API) kanban board: https://github.com/awaisanwar544/final-capstone-api/projects/1
 
-At the beginning of the project
+This was the kanban board a the beggining of the project
 
-![Start_kanban_board](assets/Kanban_start.png)
-
-At the end of the project
-
-![End_kanban_board](assets/Kanban_end.PNG)
+![Start_kanban_board](https://user-images.githubusercontent.com/10048317/177626275-81f99eea-859e-43ec-bae3-a685991b78a8.png)
 
 ## Authors
 👤 **Lucas Bonnefon**
@@ -84,7 +81,7 @@ At the end of the project
 - Twitter: [@John_J_Arboleda](https://twitter.com/John_J_Arboleda)
 - LinkedIn: [@john-arboleda](https://www.linkedin.com/in/john-arboleda/)
 
-👤 **Awais Amwar**
+👤 **Awais Anwar**
 
 - GitHub: [@awaisanwar544](https://github.com/awaisanwar544)
 - LinkedIn: [@awaisanwar544](https://www.linkedin.com/in/awaisanwar544/)
