@@ -50,6 +50,9 @@ To get a local copy up and running follow these simple example steps.
 
 [Live UI](https://book-dev.herokuapp.com/)
 
+Admin Account for Demo/testing: admin@admin.com (password: 123456)
+
+
 [API Link](https://bookdev-api.herokuapp.com/)
 
 ## Kanban Board
