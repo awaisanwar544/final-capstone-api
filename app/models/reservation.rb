@@ -7,7 +7,7 @@ class Reservation < ApplicationRecord
   validates :start_date, presence: true, date: { after: proc { Time.now }, before: proc {
                                                                                      Time.now + 6.months
                                                                                    } }
-  validates :end_date, presence: true, date: { after: proc { :start_date } }
+  validates :end_date, presence: true, date: { after_or_equal_to: proc { :start_date } }
   validates :total_cost, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   private
@@ -17,6 +17,6 @@ class Reservation < ApplicationRecord
   end
 
   def total_cost_calculation
-    self.total_cost = (end_date - start_date).to_i * provider.cost
+    self.total_cost = ((end_date - start_date).to_i + 1) * provider.cost
   end
 end
