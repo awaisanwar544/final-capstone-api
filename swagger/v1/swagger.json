@@ -1,0 +1,785 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "BookDev API",
+    "version": "v1"
+  },
+  "paths": {
+    "/api/password/forgot": {
+      "post": {
+        "summary": "Send email for password recovery",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "Reset password email sent",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Reset password email sent."
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Email address not found. Please check and try again.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": [
+                    "Email address not found. Please check and try again."
+                  ]
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Email not present",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Email not present"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "victor.peralta.gomez@gmail.com"
+                  }
+                },
+                "required": [
+                  "email"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/password/reset": {
+      "post": {
+        "summary": "Change user password with token sent by email",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "example": {
+                  "status": "ok"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Link not valid or expired. Try generating a new link.",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": [
+                    "Link not valid or expired. Try generating a new link."
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "new_password": {
+                    "type": "string",
+                    "example": "123456"
+                  },
+                  "reset_password_token": {
+                    "type": "string",
+                    "example": "d9cae7e946dd6333d5f5"
+                  }
+                },
+                "required": [
+                  "new_password",
+                  "reset_password_token"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/providers": {
+      "get": {
+        "summary": "Get providers list with API token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Providers list successfully",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 367,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcElCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--356b7395a2d92c281d77068e416b25005ca704c4/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  },
+                  {
+                    "id": 368,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcE1CIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--bd66d5584d9b29d6fe28f32435e6ee00b09695c1/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  },
+                  {
+                    "id": 369,
+                    "name": "Victor",
+                    "bio": "A programmer from Mexico",
+                    "cost": "10.0",
+                    "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcFFCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--b2b5661c573e6faf84cce014cb53fe0bf2bfd2a1/victor.jpg",
+                    "github_profile": "https://github.com/VicPeralta",
+                    "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                    "twitter_profile": "https://twitter.com/VicPeralta",
+                    "skills": [
+
+                    ]
+                  }
+                ],
+                "schema": {
+                  "type": "array",
+                  "properties": {
+                    "id": {
+                      "type": "integer"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "image": {
+                      "type": "string"
+                    },
+                    "bio": {
+                      "type": "string"
+                    },
+                    "cost": {
+                      "type": "decimal"
+                    },
+                    "github_profile": {
+                      "type": "string"
+                    },
+                    "linkedin_profile": {
+                      "type": "string"
+                    },
+                    "twitter_profile": {
+                      "type": "string"
+                    },
+                    "skills": {
+                      "type": "array",
+                      "items": {
+                        "properties": {
+                          "id": {
+                            "type": "integer"
+                          },
+                          "name": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "name",
+                    "bio"
+                  ]
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized App",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized app"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Create a provider with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "Create a provider with an admin",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Provider created"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Create a provider with a user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Admin access required"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Create a provider with incorrect data",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": [
+                    "can't be blank"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "Victor Peralta"
+                  },
+                  "bio": {
+                    "type": "string",
+                    "example": "A programmer from Mexico"
+                  },
+                  "cost": {
+                    "type": "integer",
+                    "example": 10
+                  },
+                  "skills": {
+                    "type": "array",
+                    "example": [
+                      "Ruby"
+                    ]
+                  },
+                  "image": {
+                    "type": "file"
+                  }
+                },
+                "required": [
+                  "name",
+                  "bio",
+                  "cost",
+                  "skills",
+                  "image"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/providers/{id}": {
+      "delete": {
+        "summary": "Delete a provider with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The provider's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Delete a provider with an Admin",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Provider deleted"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Delete a provider with a User",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Admin access required"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "Get a provider's info with API token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The provider's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get provider's info",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 367,
+                  "name": "Victor",
+                  "bio": "A programmer from Mexico",
+                  "cost": "10.0",
+                  "image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcElCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--356b7395a2d92c281d77068e416b25005ca704c4/victor.jpg",
+                  "github_profile": "https://github.com/VicPeralta",
+                  "linkedin_profile": "https://www.linkedin.com/in/vicperalta/",
+                  "twitter_profile": "https://twitter.com/VicPeralta",
+                  "skills": [
+
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservations": {
+      "post": {
+        "summary": "Create a reservation with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "201": {
+            "description": "Reservation created",
+            "content": {
+              "application/json": {
+                "example": {
+                  "id": 185,
+                  "user_id": 1,
+                  "provider_id": 1,
+                  "start_date": "2022-08-08",
+                  "end_date": "2022-08-12",
+                  "total_cost": "40.0",
+                  "created_at": "2022-07-19T18:23:44.287Z",
+                  "updated_at": "2022-07-19T18:23:44.287Z"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Invalid request",
+            "content": {
+              "application/json": {
+                "example": {
+                  "total_cost": [
+                    "can't be blank",
+                    "is not a number"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "provider_id": {
+                    "type": "integer",
+                    "example": 1
+                  },
+                  "start_date": {
+                    "type": "date",
+                    "example": "2022-08-08"
+                  },
+                  "end_date": {
+                    "type": "date",
+                    "example": "2022-08-12"
+                  },
+                  "total_cost": {
+                    "type": "decimal",
+                    "example": "10"
+                  }
+                },
+                "required": [
+                  "provider_id",
+                  "start_date",
+                  "end_date",
+                  "total_cost"
+                ]
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "summary": "List all reservations with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Get Reservation list",
+            "content": {
+              "application/json": {
+                "example": [
+                  {
+                    "id": 1,
+                    "provider_id": 1,
+                    "start_date": "2022-08-08",
+                    "end_date": "2022-08-14",
+                    "total_cost": "60.0",
+                    "created_at": "2022-07-19T18:23:44.254Z",
+                    "provider_name": "Victor",
+                    "provider_image": "http://www.example.com/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBcFlCIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--eee4b0ad76b52b2deaf347a3da099279bf00efe8/victor.jpg"
+                  }
+                ]
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/reservations/{id}": {
+      "delete": {
+        "summary": "Delete a reservation with User token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "example": 1,
+            "description": "The reservation's ID",
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Reservation deleted",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Reservation deleted"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Unauthorized user"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Reservation not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "message": "Couldn't find Reservation with 'id'=0"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user/add": {
+      "post": {
+        "summary": "Sign up a new user with API token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "user signed up",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": "Victor",
+                  "email": "victor.peralta.gomez@gmail.com",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3Rvci5wZXJhbHRhLmdvbWV6QGdtYWlsLmNvbSI.LsrGBYiarqSofqJLfgw8PQga-TvZ8uZELKhz-XJWfuc",
+                  "admin": true
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "email already taken",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "email already taken"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid Parameter",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "password too short"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "victorperaltagomez@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "holahola"
+                  },
+                  "name": {
+                    "type": "string",
+                    "example": "Victor Peralta"
+                  },
+                  "admin": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "email",
+                  "name",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/user": {
+      "post": {
+        "summary": "Log in user with API token",
+        "security": [
+          {
+            "BearerAuth": [
+
+            ]
+          }
+        ],
+        "parameters": [
+
+        ],
+        "responses": {
+          "200": {
+            "description": "user signed in",
+            "content": {
+              "application/json": {
+                "example": {
+                  "name": "Victor",
+                  "email": "victorperaltagomez@gmail.com",
+                  "token": "eyJhbGciOiJIUzI1NiJ9.InZpY3RvcnBlcmFsdGFnb21lekBnbWFpbC5jb20i.BCHQ-97ZtFCfiiF8MnRRF4e9edg5nbWVn3kpHc3r6dc",
+                  "admin": false
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "unauthorized user",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error:": "Invalid Password"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "format": "email",
+                    "example": "victor.peralta.gomez@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "example": "holahola"
+                  }
+                },
+                "required": [
+                  "email",
+                  "password"
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://{defaultHost}",
+      "variables": {
+        "defaultHost": {
+          "default": "bookdev-api.herokuapp.com/"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "BearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
+}
